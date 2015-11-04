@@ -11,7 +11,11 @@ var player={
     y:10,
     r:3,
     draw: function(){
-       
+        //console.log("1");
+        ctx.clearRect(0,0,1000,1000);
+        ctx.beginPath();
+        ctx.arc(player.x,player.y,player.r,0,2*Math.PI);
+        ctx.fill();
     },
     collisions: function(){
     
