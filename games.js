@@ -25,7 +25,7 @@ var player={
         if(player.y>=canvas.height-player.r){player.y=canvas.height-player.r;}
     }
 }
-      // An object for the ball.
+      // An object for the ball with its position, radius, velocity and accelaration
       var ball1 = {
         position: {x: 200, y: 10}
         , radius: 3
