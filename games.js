@@ -8,8 +8,8 @@ var scores=0;
 var times=0;
 
 var player={
-    x:10,
-    y:10,
+    x:100,
+    y:200,
     r:3,
     draw: function(){
         //console.log("1");
@@ -79,15 +79,20 @@ var distX = player.x - ball1.position.x;
 	var distY = player.y - ball1.position.y;
 	// Get distance with Pythagoras
 	var dist = Math.sqrt((distX * distX) + (distY * distY));
-        if(dist<5){
-         return;
-            console.log("finished")
+        if(dist<player.r+ball1.radius){
+            ctx.clearRect(0,0,1000,1000);
+            ctx.font="30px Verdana";
+            ctx.fillText("score: "+scores,10,50);
+            ctx.fillText("time: "+times,10,90);
+            ctx.fillStyle = "#ff0000";
+                 return;
+            console.log("finished");
         }
     
     req=window.requestAnimationFrame(main);
 }
 setInterval(function score(){scores+=10;},100);
-setInterval(function time(){times+=1;},1000);
+setInterval(function time(){times+=1;ball1.radius+=0.5},1000);
 req=window.requestAnimationFrame(main);
        // Add an event listener to the keypress event.
       window.addEventListener("keydown", function(event) { 
