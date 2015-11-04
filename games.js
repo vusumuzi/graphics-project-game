@@ -45,7 +45,13 @@ var player={
         ball1.position.y += ball1.velocity.y;
    }
    ,collisions: function(){
-	
+		// Keep the animation going while the ball has not touched the canvas bottom.
+        if ((ball1.position.x >= canvas.width - ball1.radius) ||  (ball1.position.x <= ball1.radius))
+          ball1.velocity.x = -ball1.velocity.x;    
+	if ((ball1.position.y >= canvas.height - ball1.radius) ||  (ball1.position.y <= ball1.radius)){
+          ball1.velocity.y = -ball1.velocity.y;
+         ball1.position.y=10;
+    }
    }
       }
 
