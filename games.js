@@ -7,7 +7,15 @@
 
 
 var player={
-   
+    x:10,
+    y:10,
+    r:3,
+    draw: function(){
+       
+    },
+    collisions: function(){
+    
+    }
 }
 
 function main(){
