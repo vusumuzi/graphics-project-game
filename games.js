@@ -85,7 +85,9 @@ var distX = player.x - ball1.position.x;
     
     req=window.requestAnimationFrame(main);
 }
-window.requestAnimationFrame(main);
+setInterval(function score(){scores+=10;},100);
+setInterval(function time(){times+=1;},1000);
+req=window.requestAnimationFrame(main);
       // Add an event listener to the keypress event.
       window.addEventListener("keydown", function(event) { 
     
