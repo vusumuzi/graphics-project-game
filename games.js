@@ -31,7 +31,11 @@ var player={
         , velocity: {x: 10, y: 0}
 	, acceleration: {x: 0, y: 0.000001}
    ,draw:function(){
-     
+        // Draw the ball.
+	ctx.fillStyle = "rgb(255, 0, 0)";
+        ctx.beginPath();
+        ctx.arc(ball1.position.x, ball1.position.y, ball1.radius, 0, 2 * Math.PI);
+        ctx.fill();
 		
    }
    ,update: function(){     
