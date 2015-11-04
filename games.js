@@ -39,7 +39,10 @@ var player={
 		
    }
    ,update: function(){     
-      
+          // Update the y location.
+	ball1.velocity.y = 1;
+	ball1.position.x += ball1.velocity.x;
+        ball1.position.y += ball1.velocity.y;
    }
    ,collisions: function(){
 	
