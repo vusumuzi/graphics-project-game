@@ -4,7 +4,8 @@
       // Get a 2D context for the canvas.
       var ctx = canvas.getContext("2d");
       
-
+var scores=0;
+var times=0;
 
 var player={
     x:10,
@@ -108,6 +109,4 @@ req=window.requestAnimationFrame(main);
              // console.log(event);
           }
           
-      });
-
       });
