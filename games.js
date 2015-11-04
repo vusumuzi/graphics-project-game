@@ -54,6 +54,14 @@ var player={
     }
    }
       }
+      
+      
+      // Calculate difference between centres
+	var distX = player.x - ball1.position.x;
+	var distY = player.y - ball1.position.y;
+	// Get distance with Pythagoras
+	var dist = Math.sqrt((distX * distX) + (distY * distY));
+ var req;	
 
 function main(){
    
