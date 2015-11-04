@@ -18,7 +18,10 @@ var player={
         ctx.fill();
     },
     collisions: function(){
-    
+    if(player.x<=0+player.r){player.x=1+player.r;}
+        if(player.x>=canvas.width-player.r){player.x=canvas.width-player.r;}
+       if(player.y<=0+player.r){player.y=1+player.r;}
+        if(player.y>=canvas.height-player.r){player.y=canvas.height-player.r;}
     }
 }
 
