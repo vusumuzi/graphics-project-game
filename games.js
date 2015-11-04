@@ -12,6 +12,7 @@ var player={
     y:200,
     r:3,
     draw: function(){
+        //
         //console.log("1");
         ctx.clearRect(0,0,1000,1000);
         ctx.beginPath();
@@ -91,7 +92,9 @@ var distX = player.x - ball1.position.x;
     
     req=window.requestAnimationFrame(main);
 }
+//Function to calculate the scores
 setInterval(function score(){scores+=10;},100);
+//Function to calculate time interval
 setInterval(function time(){times+=1;ball1.radius+=0.5},1000);
 req=window.requestAnimationFrame(main);
        // Add an event listener to the keypress event.
