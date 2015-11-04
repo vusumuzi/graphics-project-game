@@ -64,9 +64,26 @@ var player={
  var req;	
 
 function main(){
-   
+   //console.log("1");
+    ball1.update();
+    player.draw();
+    ball1.draw();
+    ball1.collisions();
+    player.collisions();
+    ctx.font="10px Verdana";
+	ctx.fillText("score: "+scores,10,150);
+    ctx.fillText("time: "+times,200,150);
+	ctx.fillStyle = "#ff0000";
+var distX = player.x - ball1.position.x;
+	var distY = player.y - ball1.position.y;
+	// Get distance with Pythagoras
+	var dist = Math.sqrt((distX * distX) + (distY * distY));
+        if(dist<5){
+         return;
+            console.log("finished")
+        }
     
-    window.requestAnimationFrame(main);
+    req=window.requestAnimationFrame(main);
 }
 window.requestAnimationFrame(main);
       // Add an event listener to the keypress event.
