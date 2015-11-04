@@ -24,6 +24,23 @@ var player={
         if(player.y>=canvas.height-player.r){player.y=canvas.height-player.r;}
     }
 }
+      // An object for the ball.
+      var ball1 = {
+        position: {x: 200, y: 10}
+        , radius: 3
+        , velocity: {x: 10, y: 0}
+	, acceleration: {x: 0, y: 0.000001}
+   ,draw:function(){
+     
+		
+   }
+   ,update: function(){     
+      
+   }
+   ,collisions: function(){
+	
+   }
+      }
 
 function main(){
    
