@@ -9,10 +9,13 @@ var times=0;
 var start=false;
 var pauses=false;
 
+//Creating the Player object
 var player={
     x:100,
     y:200,
     r:3,
+    
+    //This function draws a player
     draw: function(){
         //
         //console.log("1");
@@ -21,6 +24,7 @@ var player={
         ctx.arc(player.x,player.y,player.r,0,2*Math.PI);
         ctx.fill();
     },
+    //Player collision function
     collisions: function(){
     if(player.x<=0+player.r){player.x=1+player.r;}
         if(player.x>=canvas.width-player.r){player.x=canvas.width-player.r;}
@@ -50,6 +54,7 @@ var player={
    }
    ,collisions: function(){
 		// Keep the animation going while the ball has not touched the canvas bottom.
+       //When ball touches the canvas a new ball comes up again
         if ((ball1.position.x >= canvas.width - ball1.radius) ||  (ball1.position.x <= ball1.radius))
           ball1.velocity.x = -ball1.velocity.x;    
 	if ((ball1.position.y >= canvas.height - ball1.radius) ){
@@ -67,6 +72,7 @@ var player={
 	var dist = Math.sqrt((distX * distX) + (distY * distY));
  var req;	
 
+// Main function of the game. It gives the ball upadate, draws the player, draws the ball and has the player and ball collisions
 function main(){
     if(start==true){
    //console.log("1");
@@ -81,6 +87,7 @@ function main(){
 	ctx.fillStyle = "#ff0000";
 var distX = player.x - ball1.position.x;
 	var distY = player.y - ball1.position.y;
+        
 	// Get distance with Pythagoras
 	var dist = Math.sqrt((distX * distX) + (distY * distY));
         if(dist<player.r+ball1.radius){
@@ -98,8 +105,10 @@ var distX = player.x - ball1.position.x;
     }
     req=window.requestAnimationFrame(main);
 }
+
 //Function to calculate the scores in the game
 setInterval(function score(){scores+=10;},100);
+
 //Function to calculate time interval
 setInterval(function time(){times+=1;ball1.radius+=0.5;},1000);
 
