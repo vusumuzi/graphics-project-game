@@ -88,6 +88,7 @@ var distX = player.x - ball1.position.x;
             ctx.font="30px Verdana";
             ctx.fillText("score: "+scores,10,60);
             ctx.fillText("time: "+times,10,30);
+            ctx.fillText("Game Over: ",10,90);
             ctx.fillStyle = "#ff0000";
             start=false;
             man=0;
@@ -97,27 +98,28 @@ var distX = player.x - ball1.position.x;
     }
     req=window.requestAnimationFrame(main);
 }
-//Function to calculate the scores
+//Function to calculate the scores in the game
 setInterval(function score(){scores+=10;},100);
 //Function to calculate time interval
 setInterval(function time(){times+=1;ball1.radius+=0.5;},1000);
 
        // Add an event listener to the keypress event.
+       //Pressing the arrow keys for the player 
       window.addEventListener("keydown", function(event) { 
         // Just log the event to the console.
-          if(event.keyCode==39){//right
+          if(event.keyCode==39){//right arrow key
             player.x+=10;
               //console.log(event);
           }
-          if(event.keyCode==37){//left
+          if(event.keyCode==37){//left arrow key
             player.x-=10;
               //console.log(event);
           }
-          if(event.keyCode==40){//down
+          if(event.keyCode==40){//down arrow key
             player.y+=10;
               //console.log(event);
           }
-          if(event.keyCode==38){//up
+          if(event.keyCode==38){//up arrow key
             player.y-=10;
              // console.log(event);
           }
@@ -126,7 +128,7 @@ setInterval(function time(){times+=1;ball1.radius+=0.5;},1000);
 var man=0;
 var man1=0;
 
-// A function to start the game
+// A function to start playing  the game
 function starts(){
     ctx.clearRect(0,0,1000,1000);
     start=true; 
@@ -144,6 +146,8 @@ function starts(){
         
     }
 }
+//A fuction to pause the game
+// Can stop the  game and play again
 function pause(){
     if(man1==0){
     pauses=true;
