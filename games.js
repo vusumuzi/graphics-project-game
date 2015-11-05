@@ -124,11 +124,14 @@ setInterval(function time(){times+=1;ball1.radius+=0.5;},1000);
           
       });
 var man=0;
+var man1=0;
+
+// A function to start the game
 function starts(){
     ctx.clearRect(0,0,1000,1000);
     start=true; 
     stops=false;
-        player.x=100;
+    player.x=100;
     player.y=200;
     ball1.radius=1;
     ball1.position.x=10;
@@ -142,10 +145,19 @@ function starts(){
     }
 }
 function pause(){
+    if(man1==0){
     pauses=true;
     start=false;
     ctx.clearRect(0,0,1000,1000);
     ctx.font="60px Verdana";
 	ctx.fillText("Game Paused: ",120,60);
 	ctx.fillStyle = "#ff0000";
+        man1++;
+    }
+    else{
+        pauses=false;
+        start=true;
+        man1--;
+    }
+    
 }
