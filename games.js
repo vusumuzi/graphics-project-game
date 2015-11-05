@@ -141,4 +141,11 @@ function starts(){
         
     }
 }
-
+function pause(){
+    pauses=true;
+    start=false;
+    ctx.clearRect(0,0,1000,1000);
+    ctx.font="60px Verdana";
+	ctx.fillText("Game Paused: ",120,60);
+	ctx.fillStyle = "#ff0000";
+}
