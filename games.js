@@ -32,6 +32,8 @@ var player={
         if(player.y>=canvas.height-player.r){player.y=canvas.height-player.r;}
     }
 }
+
+      //Creating ball1
       // An object for the ball with its position, radius, velocity and accelaration
       var ball1 = {
         position: {x: 200, y: 10}
@@ -39,7 +41,7 @@ var player={
         , velocity: {x: 10, y: 0}
 	, acceleration: {x: 0, y: 0.000001}
    ,draw:function(){
-        // Draw the ball.
+        // Drawing the ball.
 	ctx.fillStyle = "rgb(255, 0, 0)";
         ctx.beginPath();
         ctx.arc(ball1.position.x, ball1.position.y, ball1.radius, 0, 2 * Math.PI);
@@ -47,7 +49,7 @@ var player={
 		
    }
    ,update: function(){     
-          // Update the y location.
+          // Updating  the y location.
 	ball1.velocity.y = 1;
 	ball1.position.x += ball1.velocity.x;
         ball1.position.y += ball1.velocity.y;
@@ -68,7 +70,7 @@ var player={
       // Calculate difference between centres
 	var distX = player.x - ball1.position.x;
 	var distY = player.y - ball1.position.y;
-	// Get distance with Pythagoras
+	// Get distance using  Pythagoras theory
 	var dist = Math.sqrt((distX * distX) + (distY * distY));
  var req;	
 
@@ -88,7 +90,7 @@ function main(){
 var distX = player.x - ball1.position.x;
 	var distY = player.y - ball1.position.y;
         
-	// Get distance with Pythagoras
+	// Get distance using the  Pythagoras formular
 	var dist = Math.sqrt((distX * distX) + (distY * distY));
         if(dist<player.r+ball1.radius){
             ctx.clearRect(0,0,1000,1000);
@@ -109,7 +111,7 @@ var distX = player.x - ball1.position.x;
 //Function to calculate the scores in the game
 setInterval(function score(){scores+=10;},100);
 
-//Function to calculate time interval
+//Function to calculate time interval. Sets the time when the ball will be released
 setInterval(function time(){times+=1;ball1.radius+=0.5;},1000);
 
        // Add an event listener to the keypress event.
