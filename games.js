@@ -6,6 +6,8 @@
       
 var scores=0;
 var times=0;
+var start=false;
+var pauses=false;
 
 var player={
     x:100,
@@ -50,7 +52,7 @@ var player={
 		// Keep the animation going while the ball has not touched the canvas bottom.
         if ((ball1.position.x >= canvas.width - ball1.radius) ||  (ball1.position.x <= ball1.radius))
           ball1.velocity.x = -ball1.velocity.x;    
-	if ((ball1.position.y >= canvas.height - ball1.radius) ||  (ball1.position.y <= ball1.radius)){
+	if ((ball1.position.y >= canvas.height - ball1.radius) ){
           ball1.velocity.y = -ball1.velocity.y;
          ball1.position.y=10;
     }
@@ -66,6 +68,7 @@ var player={
  var req;	
 
 function main(){
+    if(start==true){
    //console.log("1");
     ball1.update();
     player.draw();
@@ -73,8 +76,8 @@ function main(){
     ball1.collisions();
     player.collisions();
     ctx.font="10px Verdana";
-	ctx.fillText("score: "+scores,10,150);
-    ctx.fillText("time: "+times,200,150);
+	ctx.fillText("score: "+scores,10,30);
+    ctx.fillText("time: "+times,10,10);
 	ctx.fillStyle = "#ff0000";
 var distX = player.x - ball1.position.x;
 	var distY = player.y - ball1.position.y;
@@ -83,20 +86,22 @@ var distX = player.x - ball1.position.x;
         if(dist<player.r+ball1.radius){
             ctx.clearRect(0,0,1000,1000);
             ctx.font="30px Verdana";
-            ctx.fillText("score: "+scores,10,50);
-            ctx.fillText("time: "+times,10,90);
+            ctx.fillText("score: "+scores,10,60);
+            ctx.fillText("time: "+times,10,30);
             ctx.fillStyle = "#ff0000";
+            start=false;
+            man=0;
                  return;
             console.log("finished");
         }
-    
+    }
     req=window.requestAnimationFrame(main);
 }
 //Function to calculate the scores
 setInterval(function score(){scores+=10;},100);
 //Function to calculate time interval
-setInterval(function time(){times+=1;ball1.radius+=0.5},1000);
-req=window.requestAnimationFrame(main);
+setInterval(function time(){times+=1;ball1.radius+=0.5;},1000);
+
        // Add an event listener to the keypress event.
       window.addEventListener("keydown", function(event) { 
         // Just log the event to the console.
@@ -118,3 +123,22 @@ req=window.requestAnimationFrame(main);
           }
           
       });
+var man=0;
+function starts(){
+    ctx.clearRect(0,0,1000,1000);
+    start=true; 
+    stops=false;
+        player.x=100;
+    player.y=200;
+    ball1.radius=1;
+    ball1.position.x=10;
+    ball1.position.y=10;
+    times=0;
+    scores=0; 
+    if(man==0){
+        man++;
+    main();
+        
+    }
+}
+
