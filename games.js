@@ -1,5 +1,5 @@
 
-      // Gets a handle to the element with id canvasOne.
+      // Gets a handle to the element with id canvas.
       var canvas = document.getElementById("canvas");
       // Get a 2D context for the canvas.
       var ctx = canvas.getContext("2d");
@@ -42,7 +42,7 @@ var player={
 	, acceleration: {x: 0, y: 0.000001}
    ,draw:function(){
         // Drawing the ball.
-	ctx.fillStyle = "rgb(255, 0, 0)";
+	ctx.fillStyle = "rgb(0, 0, 255)";
         ctx.beginPath();
         ctx.arc(ball1.position.x, ball1.position.y, ball1.radius, 0, 2 * Math.PI);
         ctx.fill();
